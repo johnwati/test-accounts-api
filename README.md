@@ -13,8 +13,8 @@ To run this application, you need the following installed on your system:
 
 ### Installation
 
-1. Clone this repository: `git clone https://github.com/xBlizZer/SpringJWTAuth`
-2. Navigate to the project directory: `cd SpringJWTAuth`
+1. Clone this repository: `git clone https://github.com/johnwati/test-accounts-api`
+2. Navigate to the project directory: `cd test-accounts-api`
 3. Run the application: `mvn spring-boot:run`
 
 # Usage
