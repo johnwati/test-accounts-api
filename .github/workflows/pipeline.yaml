@@ -25,3 +25,6 @@ jobs:
 
       - name: Run Tests
         run: mvn test
+
+      - name: Run Sonar Analysis
+        run:  mvn clean verify sonar:sonar
