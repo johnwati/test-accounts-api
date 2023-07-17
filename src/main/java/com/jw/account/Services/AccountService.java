@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 public class AccountService {
     private final AccountRepository accountRepository;
 
+    private final String ACCOUNT_NOT_FOUND= "Account not found with id: ";
+
     @Autowired
     public AccountService(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
@@ -39,7 +41,7 @@ public class AccountService {
 
     public Account getAccountById(Long id) {
         return accountRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("Account not found with id: " + id));
+                .orElseThrow(() -> new UserNotFoundException(ACCOUNT_NOT_FOUND + id));
     }
 
     public Account createAccount(Account account) {
@@ -48,7 +50,7 @@ public class AccountService {
 
     public Account updateAccount(Long id, Account accountDetails) {
         Account account = accountRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("Account not found with id: " + id));
+                .orElseThrow(() -> new UserNotFoundException(ACCOUNT_NOT_FOUND + id));
 
         account.setName(accountDetails.getName());
         account.setEmail(accountDetails.getEmail());
@@ -59,7 +61,7 @@ public class AccountService {
 
     public void deleteAccount(Long id) {
         Account account = accountRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("Account not found with id: " + id));
+                .orElseThrow(() -> new UserNotFoundException(ACCOUNT_NOT_FOUND + id));
 
         accountRepository.delete(account);
     }

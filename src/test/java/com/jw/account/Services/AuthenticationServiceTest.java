@@ -2,7 +2,7 @@ package com.jw.account.Services;
 
 import com.jw.account.DTO.LoginRequestDTO;
 import com.jw.account.DTO.RegisterRequestDTO;
-import com.jw.account.Entities.RefreshToken;
+import com.jw.account.Entities.RefreshTokenEntity;
 import com.jw.account.Entities.Roles;
 import com.jw.account.Entities.Users;
 import com.jw.account.Exceptions.BadRequestException;
@@ -87,7 +87,7 @@ class AuthenticationServiceTest {
     void testLogout() {
         // Setup
         // Configure RefreshTokenRepository.findByRefreshToken(...).
-        final RefreshToken refreshToken1 = new RefreshToken();
+        final RefreshTokenEntity refreshToken1 = new RefreshTokenEntity();
         refreshToken1.setId(0L);
         final Users user = new Users();
         user.setId(0L);
@@ -99,11 +99,11 @@ class AuthenticationServiceTest {
         user.setRoles(Set.of(roles));
         refreshToken1.setUser(user);
         refreshToken1.setRefreshToken("refreshToken");
-        final Optional<RefreshToken> refreshToken = Optional.of(refreshToken1);
+        final Optional<RefreshTokenEntity> refreshToken = Optional.of(refreshToken1);
         when(mockRefreshTokenRepository.findByRefreshToken("token")).thenReturn(refreshToken);
 
         // Configure RefreshTokenRepository.findById(...).
-        final RefreshToken refreshToken3 = new RefreshToken();
+        final RefreshTokenEntity refreshToken3 = new RefreshTokenEntity();
         refreshToken3.setId(0L);
         final Users user1 = new Users();
         user1.setId(0L);
@@ -115,7 +115,7 @@ class AuthenticationServiceTest {
         user1.setRoles(Set.of(roles1));
         refreshToken3.setUser(user1);
         refreshToken3.setRefreshToken("refreshToken");
-        final Optional<RefreshToken> refreshToken2 = Optional.of(refreshToken3);
+        final Optional<RefreshTokenEntity> refreshToken2 = Optional.of(refreshToken3);
         when(mockRefreshTokenRepository.findById(0L)).thenReturn(refreshToken2);
 
         // Run the test
@@ -125,7 +125,7 @@ class AuthenticationServiceTest {
         assertThat(result).isFalse();
 
         // Confirm RefreshTokenRepository.delete(...).
-        final RefreshToken entity = new RefreshToken();
+        final RefreshTokenEntity entity = new RefreshTokenEntity();
         entity.setId(0L);
         final Users user2 = new Users();
         user2.setId(0L);
@@ -156,7 +156,7 @@ class AuthenticationServiceTest {
     void testLogout_RefreshTokenRepositoryFindByIdReturnsAbsent() {
         // Setup
         // Configure RefreshTokenRepository.findByRefreshToken(...).
-        final RefreshToken refreshToken1 = new RefreshToken();
+        final RefreshTokenEntity refreshToken1 = new RefreshTokenEntity();
         refreshToken1.setId(0L);
         final Users user = new Users();
         user.setId(0L);
@@ -168,7 +168,7 @@ class AuthenticationServiceTest {
         user.setRoles(Set.of(roles));
         refreshToken1.setUser(user);
         refreshToken1.setRefreshToken("refreshToken");
-        final Optional<RefreshToken> refreshToken = Optional.of(refreshToken1);
+        final Optional<RefreshTokenEntity> refreshToken = Optional.of(refreshToken1);
         when(mockRefreshTokenRepository.findByRefreshToken("token")).thenReturn(refreshToken);
 
         when(mockRefreshTokenRepository.findById(0L)).thenReturn(Optional.empty());
@@ -180,7 +180,7 @@ class AuthenticationServiceTest {
         assertThat(result).isTrue();
 
         // Confirm RefreshTokenRepository.delete(...).
-        final RefreshToken entity = new RefreshToken();
+        final RefreshTokenEntity entity = new RefreshTokenEntity();
         entity.setId(0L);
         final Users user1 = new Users();
         user1.setId(0L);
@@ -199,7 +199,7 @@ class AuthenticationServiceTest {
     void testRefreshToken() {
         // Setup
         // Configure RefreshTokenRepository.findByRefreshToken(...).
-        final RefreshToken refreshToken1 = new RefreshToken();
+        final RefreshTokenEntity refreshToken1 = new RefreshTokenEntity();
         refreshToken1.setId(0L);
         final Users user = new Users();
         user.setId(0L);
@@ -211,11 +211,11 @@ class AuthenticationServiceTest {
         user.setRoles(Set.of(roles));
         refreshToken1.setUser(user);
         refreshToken1.setRefreshToken("refreshToken");
-        final Optional<RefreshToken> refreshToken = Optional.of(refreshToken1);
+        final Optional<RefreshTokenEntity> refreshToken = Optional.of(refreshToken1);
         when(mockRefreshTokenRepository.findByRefreshToken("token")).thenReturn(refreshToken);
 
         // Configure JwtUtils.verifyExpiration(...).
-        final RefreshToken refreshToken2 = new RefreshToken();
+        final RefreshTokenEntity refreshToken2 = new RefreshTokenEntity();
         refreshToken2.setId(0L);
         final Users user1 = new Users();
         user1.setId(0L);
@@ -227,7 +227,7 @@ class AuthenticationServiceTest {
         user1.setRoles(Set.of(roles1));
         refreshToken2.setUser(user1);
         refreshToken2.setRefreshToken("refreshToken");
-        final RefreshToken token = new RefreshToken();
+        final RefreshTokenEntity token = new RefreshTokenEntity();
         token.setId(0L);
         final Users user2 = new Users();
         user2.setId(0L);

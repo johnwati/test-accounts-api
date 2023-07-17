@@ -68,16 +68,4 @@ public class AuthController {
         return ResponseEntity.ok().body(roles);
     }
 
-    @PreAuthorize("hasRole('ROLE_MEMBER')")
-    @GetMapping("/role_member")
-    public ResponseEntity<List<String>> roleMember(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-
-        List<String> roles = authorities.stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok().body(roles);
-    }
 }

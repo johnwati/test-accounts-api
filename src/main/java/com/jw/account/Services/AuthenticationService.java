@@ -2,7 +2,7 @@ package com.jw.account.Services;
 
 import com.jw.account.DTO.LoginRequestDTO;
 import com.jw.account.DTO.RegisterRequestDTO;
-import com.jw.account.Entities.RefreshToken;
+import com.jw.account.Entities.RefreshTokenEntity;
 import com.jw.account.Entities.Users;
 import com.jw.account.Entities.Roles;
 import com.jw.account.Exceptions.BadRequestException;
@@ -59,7 +59,7 @@ public class AuthenticationService {
             usersRepository.save(registeredUser);
 
             String token = jwtUtils.generateJwtToken(registeredUser);
-            RefreshToken refreshToken = jwtUtils.createRefreshToken(registeredUser);
+            RefreshTokenEntity refreshToken = jwtUtils.createRefreshToken(registeredUser);
 
             List<String> roleNames = registeredUser.getRoles().stream().map(Roles::getName).collect(Collectors.toList());
 
@@ -78,7 +78,7 @@ public class AuthenticationService {
         }
 
         String token = jwtUtils.generateJwtToken(loginUser);
-        RefreshToken refreshToken = jwtUtils.createRefreshToken(loginUser);
+        RefreshTokenEntity refreshToken = jwtUtils.createRefreshToken(loginUser);
 
         List<String> roleNames = loginUser.getRoles().stream().map(Roles::getName).collect(Collectors.toList());
 
@@ -86,7 +86,7 @@ public class AuthenticationService {
     }
 
     public boolean logout(String token){
-        RefreshToken toDeletetoken = refreshTokenRepository.findByRefreshToken(token).orElse(null);
+        RefreshTokenEntity toDeletetoken = refreshTokenRepository.findByRefreshToken(token).orElse(null);
         if(toDeletetoken != null) {
             refreshTokenRepository.delete(toDeletetoken);
             return refreshTokenRepository.findById(toDeletetoken.getId()).isEmpty();
@@ -97,7 +97,7 @@ public class AuthenticationService {
     public RefreshTokenResponse refreshToken(String token){
         return refreshTokenRepository.findByRefreshToken(token)
                 .map(jwtUtils::verifyExpiration)
-                .map(RefreshToken::getUser)
+                .map(RefreshTokenEntity::getUser)
                 .map(user -> {
                     String jwtToken = jwtUtils.generateJwtToken(user);
                     return new RefreshTokenResponse(jwtToken, token);

@@ -1,6 +1,6 @@
 package com.jw.account.Security;
 
-import com.jw.account.Entities.RefreshToken;
+import com.jw.account.Entities.RefreshTokenEntity;
 import com.jw.account.Entities.Roles;
 import com.jw.account.Entities.Users;
 import com.jw.account.Exceptions.TokenRefreshException;
@@ -60,8 +60,8 @@ public class JwtUtils {
         }
     }
 
-    public RefreshToken createRefreshToken(Users user) {
-        RefreshToken refreshToken = new RefreshToken();
+    public RefreshTokenEntity createRefreshToken(Users user) {
+        RefreshTokenEntity refreshToken = new RefreshTokenEntity();
 
         refreshToken.setUser(user);
         refreshToken.setExpiryDate(Instant.now().plusMillis(REFRESH_TOKEN_EXPIRATION_MS));
@@ -71,7 +71,7 @@ public class JwtUtils {
         return refreshToken;
     }
 
-    public RefreshToken verifyExpiration(RefreshToken token) {
+    public RefreshTokenEntity verifyExpiration(RefreshTokenEntity token) {
         if (token.getExpiryDate().compareTo(Instant.now()) < 0) {
             refreshTokenRepository.delete(token);
             throw new TokenRefreshException("Refresh token was expired. Please make a new signin request");

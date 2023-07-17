@@ -18,12 +18,10 @@ public class UsersGenerator {
     private RolesRepository rolesRepository;
 
     public void generateUsers(){
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
         Users user = new Users();
         user.setUsername("Jonas");
         user.setEmail("TestMail");
-        user.setPassword(passwordEncoder.encode("Test"));
         Roles role = rolesRepository.findByName("ROLE_ADMIN");
         user.getRoles().add(role);
         Roles role1 = rolesRepository.findByName("ROLE_MEMBER");
@@ -35,7 +33,6 @@ public class UsersGenerator {
         user1.setEmail("TestMail 2");
         Roles role2 = rolesRepository.findByName("ROLE_ADMIN");
         user1.getRoles().add(role2);
-        user1.setPassword(passwordEncoder.encode("test"));
         usersRepository.save(user1);
     }
 }
