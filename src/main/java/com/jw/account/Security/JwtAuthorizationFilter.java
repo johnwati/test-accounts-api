@@ -1,6 +1,6 @@
-package com.jw.account.Security;
+package com.jw.account.security;
 
-import com.jw.account.Models.JwtAuthenticatedProfile;
+import com.jw.account.models.JwtAuthenticatedProfile;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

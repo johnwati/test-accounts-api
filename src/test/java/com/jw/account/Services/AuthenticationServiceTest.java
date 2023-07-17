@@ -1,26 +1,24 @@
-package com.jw.account.Services;
+package com.jw.account.services;
 
 import com.jw.account.DTO.LoginRequestDTO;
 import com.jw.account.DTO.RegisterRequestDTO;
-import com.jw.account.Entities.RefreshTokenEntity;
-import com.jw.account.Entities.Roles;
-import com.jw.account.Entities.Users;
-import com.jw.account.Exceptions.BadRequestException;
-import com.jw.account.Exceptions.TokenRefreshException;
-import com.jw.account.Exceptions.UserNotFoundException;
-import com.jw.account.Repositories.RefreshTokenRepository;
-import com.jw.account.Repositories.RolesRepository;
-import com.jw.account.Repositories.UsersRepository;
-import com.jw.account.Response.AuthResponse;
-import com.jw.account.Response.RefreshTokenResponse;
-import com.jw.account.Security.JwtUtils;
+import com.jw.account.entities.RefreshTokenEntity;
+import com.jw.account.entities.Roles;
+import com.jw.account.entities.Users;
+import com.jw.account.exceptions.BadRequestException;
+import com.jw.account.exceptions.TokenRefreshException;
+import com.jw.account.exceptions.UserNotFoundException;
+import com.jw.account.repositories.RefreshTokenRepository;
+import com.jw.account.repositories.RolesRepository;
+import com.jw.account.repositories.UsersRepository;
+import com.jw.account.response.RefreshTokenResponse;
+import com.jw.account.security.JwtUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 

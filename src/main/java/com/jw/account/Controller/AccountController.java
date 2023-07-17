@@ -1,8 +1,8 @@
-package com.jw.account.Controller;
+package com.jw.account.controller;
 
 import com.jw.account.DTO.AccountDTO;
-import com.jw.account.Entities.Account;
-import com.jw.account.Services.AccountService;
+import com.jw.account.entities.Account;
+import com.jw.account.services.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

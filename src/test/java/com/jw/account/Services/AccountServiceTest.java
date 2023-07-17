@@ -1,8 +1,8 @@
-package com.jw.account.Services;
+package com.jw.account.services;
 
-import com.jw.account.Entities.Account;
-import com.jw.account.Exceptions.UserNotFoundException;
-import com.jw.account.Repositories.AccountRepository;
+import com.jw.account.entities.Account;
+import com.jw.account.exceptions.UserNotFoundException;
+import com.jw.account.repositories.AccountRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

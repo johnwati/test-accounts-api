@@ -1,4 +1,4 @@
-package com.jw.account.Response;
+package com.jw.account.response;
 
 public class RefreshTokenResponse {
     private final String token;

@@ -1,12 +1,9 @@
-package com.jw.account.Generators;
+package com.jw.account.generators;
 
-import com.jw.account.Entities.Roles;
-import com.jw.account.Entities.Users;
-import com.jw.account.Repositories.RolesRepository;
-import com.jw.account.Repositories.UsersRepository;
+import com.jw.account.repositories.RolesRepository;
+import com.jw.account.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component

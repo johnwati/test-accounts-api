@@ -1,5 +1,5 @@
-package com.jw.account.Repositories;
-import com.jw.account.Entities.Account;
+package com.jw.account.repositories;
+import com.jw.account.entities.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

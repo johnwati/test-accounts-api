@@ -1,4 +1,4 @@
-package com.jw.account.Models;
+package com.jw.account.models;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;

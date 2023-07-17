@@ -1,12 +1,12 @@
-package com.jw.account.Controller;
+package com.jw.account.controller;
 
-import com.jw.account.Entities.RefreshTokenEntity;
-import com.jw.account.Response.AuthResponse;
+import com.jw.account.entities.RefreshTokenEntity;
+import com.jw.account.response.AuthResponse;
 import com.jw.account.DTO.LoginRequestDTO;
-import com.jw.account.Response.RefreshTokenResponse;
+import com.jw.account.response.RefreshTokenResponse;
 import com.jw.account.DTO.RegisterRequestDTO;
-import com.jw.account.Exceptions.BadRequestException;
-import com.jw.account.Services.AuthenticationService;
+import com.jw.account.exceptions.BadRequestException;
+import com.jw.account.services.AuthenticationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +20,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.*;
 
 @RestController
 @RequestMapping("/auth")

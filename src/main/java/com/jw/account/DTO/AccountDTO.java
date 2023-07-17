@@ -1,5 +1,5 @@
 package com.jw.account.DTO;
-import com.jw.account.Entities.Account;
+import com.jw.account.entities.Account;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

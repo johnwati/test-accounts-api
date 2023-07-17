@@ -1,7 +1,7 @@
-package com.jw.account.Config;
+package com.jw.account.config;
 
-import com.jw.account.Security.JwtAuthorizationFilter;
-import com.jw.account.Security.JwtUtils;
+import com.jw.account.security.JwtAuthorizationFilter;
+import com.jw.account.security.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

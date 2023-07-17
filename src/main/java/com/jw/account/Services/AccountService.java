@@ -1,7 +1,7 @@
-package com.jw.account.Services;
-import com.jw.account.Entities.Account;
-import com.jw.account.Exceptions.UserNotFoundException;
-import com.jw.account.Repositories.AccountRepository;
+package com.jw.account.services;
+import com.jw.account.entities.Account;
+import com.jw.account.exceptions.UserNotFoundException;
+import com.jw.account.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

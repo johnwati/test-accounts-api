@@ -1,11 +1,11 @@
-package com.jw.account.Security;
+package com.jw.account.security;
 
-import com.jw.account.Entities.RefreshTokenEntity;
-import com.jw.account.Entities.Roles;
-import com.jw.account.Entities.Users;
-import com.jw.account.Exceptions.TokenRefreshException;
-import com.jw.account.Repositories.RefreshTokenRepository;
-import com.jw.account.Repositories.UsersRepository;
+import com.jw.account.entities.RefreshTokenEntity;
+import com.jw.account.entities.Roles;
+import com.jw.account.entities.Users;
+import com.jw.account.exceptions.TokenRefreshException;
+import com.jw.account.repositories.RefreshTokenRepository;
+import com.jw.account.repositories.UsersRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

@@ -1,7 +1,7 @@
-package com.jw.account.Generators;
+package com.jw.account.generators;
 
-import com.jw.account.Entities.Roles;
-import com.jw.account.Repositories.RolesRepository;
+import com.jw.account.entities.Roles;
+import com.jw.account.repositories.RolesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
