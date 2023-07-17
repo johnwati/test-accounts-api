@@ -1,5 +1,6 @@
-[![Pipeline Status](https://github.com/xBlizZer/demoAuth/actions/workflows/pipeline.yaml/badge.svg)](https://github.com/xBlizZer/demoAuth/actions)
+[![Build and Test](https://github.com/johnwati/test-accounts-api/actions/workflows/pipeline.yaml/badge.svg?branch=master)](https://github.com/johnwati/test-accounts-api/actions/workflows/pipeline.yaml)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.jw%3Aaccounts&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=com.jw%3Aaccounts)
 
 ## Getting Started
 

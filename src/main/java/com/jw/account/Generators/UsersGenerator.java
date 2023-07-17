@@ -19,20 +19,5 @@ public class UsersGenerator {
 
     public void generateUsers(){
 
-        Users user = new Users();
-        user.setUsername("Jonas");
-        user.setEmail("TestMail");
-        Roles role = rolesRepository.findByName("ROLE_ADMIN");
-        user.getRoles().add(role);
-        Roles role1 = rolesRepository.findByName("ROLE_MEMBER");
-        user.getRoles().add(role1);
-        usersRepository.save(user);
-
-        Users user1 = new Users();
-        user1.setUsername("Jonas2");
-        user1.setEmail("TestMail 2");
-        Roles role2 = rolesRepository.findByName("ROLE_ADMIN");
-        user1.getRoles().add(role2);
-        usersRepository.save(user1);
     }
 }

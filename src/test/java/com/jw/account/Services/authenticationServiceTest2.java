@@ -1,6 +1,6 @@
 package com.jw.account.Services;
 
-import com.jw.account.Entities.RefreshToken;
+import com.jw.account.Entities.RefreshTokenEntity;
 import com.jw.account.Entities.Roles;
 import com.jw.account.Entities.Users;
 import com.jw.account.DTO.LoginRequestDTO;
@@ -81,7 +81,7 @@ class authenticationServiceTest2 {
         when(usersRepository.save(any(Users.class))).thenReturn(registeredUser);
         when(rolesRepository.findByName(anyString())).thenReturn(role, role1);
         when(jwtUtils.generateJwtToken(any(Users.class))).thenReturn("jwt-token");
-        when(jwtUtils.createRefreshToken(any(Users.class))).thenReturn(new RefreshToken());
+        when(jwtUtils.createRefreshToken(any(Users.class))).thenReturn(new RefreshTokenEntity());
 //        when(registeredUser.getRoles()).thenReturn(roles);
 
         // Call the service method
@@ -130,7 +130,7 @@ class authenticationServiceTest2 {
         // Mock the repository methods
         when(usersRepository.findByUsername(anyString())).thenReturn(existingUser);
         when(jwtUtils.generateJwtToken(any(Users.class))).thenReturn("jwt-token");
-        when(jwtUtils.createRefreshToken(any(Users.class))).thenReturn(new RefreshToken());
+        when(jwtUtils.createRefreshToken(any(Users.class))).thenReturn(new RefreshTokenEntity());
 
 //        // Call the service method
 //        AuthResponse result = authenticationService.login(loginRequestDTO);
@@ -180,7 +180,7 @@ class authenticationServiceTest2 {
     void testLogoutWithValidRefreshToken() {
         // Prepare test data
         String refreshToken = "refresh-token";
-        RefreshToken existingRefreshToken = new RefreshToken();
+        RefreshTokenEntity existingRefreshToken = new RefreshTokenEntity();
 
         // Mock the repository methods
         when(refreshTokenRepository.findByRefreshToken(anyString())).thenReturn(Optional.of(existingRefreshToken));
@@ -212,11 +212,11 @@ class authenticationServiceTest2 {
     void testRefreshTokenWithExpiredToken() {
         // Prepare test data
         String refreshToken = "refresh-token";
-        RefreshToken existingRefreshToken = new RefreshToken();
+        RefreshTokenEntity existingRefreshToken = new RefreshTokenEntity();
 
         // Mock the repository methods
         when(refreshTokenRepository.findByRefreshToken(anyString())).thenReturn(Optional.of(existingRefreshToken));
-        when(jwtUtils.verifyExpiration(any(RefreshToken.class))).thenThrow(TokenRefreshException.class);
+        when(jwtUtils.verifyExpiration(any(RefreshTokenEntity.class))).thenThrow(TokenRefreshException.class);
 
         // Assertions
         assertThrows(TokenRefreshException.class, () -> authenticationService.refreshToken(refreshToken));

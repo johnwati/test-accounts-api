@@ -15,6 +15,11 @@
 	<description>Demo project for accounts apis</description>
 	<properties>
 		<java.version>17</java.version>
+
+		<!-- SonarCloud properties -->
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>ed700d52d269c699111021b7e4729cae67d78c2e</sonar.login>
+		<sonar.organization>johnwati</sonar.organization>
 	</properties>
 	<dependencies>
 
@@ -100,6 +105,13 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+
+			<!-- SonarQube plugin -->
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.9.0.2155</version>
 			</plugin>
 		</plugins>
 	</build>
