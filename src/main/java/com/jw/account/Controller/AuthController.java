@@ -1,10 +1,10 @@
 package com.jw.account.Controller;
 
+import com.jw.account.Entities.RefreshTokenEntity;
 import com.jw.account.Response.AuthResponse;
 import com.jw.account.DTO.LoginRequestDTO;
 import com.jw.account.Response.RefreshTokenResponse;
 import com.jw.account.DTO.RegisterRequestDTO;
-import com.jw.account.Entities.RefreshToken;
 import com.jw.account.Exceptions.BadRequestException;
 import com.jw.account.Services.AuthenticationService;
 import jakarta.validation.Valid;
@@ -43,13 +43,13 @@ public class AuthController {
     }
 
     @PostMapping("/refreshtoken")
-    public RefreshTokenResponse refreshtoken(@Valid @RequestBody RefreshToken request) {
+    public RefreshTokenResponse refreshtoken(@Valid @RequestBody RefreshTokenEntity request) {
         String requestRefreshToken = request.getRefreshToken();
         return authenticationService.refreshToken(requestRefreshToken);
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<String> logout(@Valid @RequestBody RefreshToken request){
+    public ResponseEntity<String> logout(@Valid @RequestBody RefreshTokenEntity request){
         if(!authenticationService.logout(request.getRefreshToken()))
             return ResponseEntity.badRequest().body("Sorry, it seems that you are unable to log out at the moment. Please try again!");
         return ResponseEntity.ok().body("You have been successfully logged out.");
