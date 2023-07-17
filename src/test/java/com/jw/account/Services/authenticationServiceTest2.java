@@ -113,39 +113,6 @@ class authenticationServiceTest2 {
     }
 
     @Test
-    void testLoginWithValidCredentials() {
-        // Prepare test data
-        LoginRequestDTO loginRequestDTO = new LoginRequestDTO();
-        loginRequestDTO.setUsername("john");
-        loginRequestDTO.setPassword("password");
-
-        Users existingUser = new Users();
-        existingUser.setId(1L);
-        existingUser.setUsername("john");
-        existingUser.setPassword("password"); // Encoded password
-        Roles role = new Roles();
-        role.setName("ROLE_ADMIN");
-        existingUser.setRoles(Set.of(role));
-
-        // Mock the repository methods
-        when(usersRepository.findByUsername(anyString())).thenReturn(existingUser);
-        when(jwtUtils.generateJwtToken(any(Users.class))).thenReturn("jwt-token");
-        when(jwtUtils.createRefreshToken(any(Users.class))).thenReturn(new RefreshTokenEntity());
-
-//        // Call the service method
-//        AuthResponse result = authenticationService.login(loginRequestDTO);
-//
-//        // Assertions
-//        assertNotNull(result);
-//        assertEquals("jwt-token", result.getToken());
-//        assertNotNull(result.getRefreshToken());
-//        assertEquals(1L, result.getId());
-//        assertEquals("john", result.getUsername());
-//        assertNull(result.getEmail());
-//        assertEquals(1, result.getRoles().size());
-    }
-
-    @Test
     void testLoginWithNonExistingUsername() {
         // Prepare test data
         LoginRequestDTO loginRequestDTO = new LoginRequestDTO();

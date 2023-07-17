@@ -17,9 +17,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -61,9 +64,11 @@ public class AuthController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 
-        List<String> roles = authorities.stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toList());
+        List<String> roles = new ArrayList<>();
+        for (GrantedAuthority authority : authorities) {
+            String grantedAuthorityAuthority = authority.getAuthority();
+            roles.add(grantedAuthorityAuthority);
+        }
 
         return ResponseEntity.ok().body(roles);
     }

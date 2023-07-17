@@ -19,10 +19,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 @Service
 public class AuthenticationService {
@@ -61,7 +64,11 @@ public class AuthenticationService {
             String token = jwtUtils.generateJwtToken(registeredUser);
             RefreshTokenEntity refreshToken = jwtUtils.createRefreshToken(registeredUser);
 
-            List<String> roleNames = registeredUser.getRoles().stream().map(Roles::getName).collect(Collectors.toList());
+            List<String> roleNames = new ArrayList<>();
+            for (Roles roles1 : registeredUser.getRoles()) {
+                String name = roles1.getName();
+                roleNames.add(name);
+            }
 
             return new AuthResponse(token,refreshToken.getRefreshToken(),registeredUser.getId(),registeredUser.getUsername(),registeredUser.getEmail(), roleNames);
         }
@@ -80,7 +87,11 @@ public class AuthenticationService {
         String token = jwtUtils.generateJwtToken(loginUser);
         RefreshTokenEntity refreshToken = jwtUtils.createRefreshToken(loginUser);
 
-        List<String> roleNames = loginUser.getRoles().stream().map(Roles::getName).collect(Collectors.toList());
+        List<String> roleNames = new ArrayList<>();
+        for (Roles roles : loginUser.getRoles()) {
+            String name = roles.getName();
+            roleNames.add(name);
+        }
 
         return new AuthResponse(token,refreshToken.getRefreshToken(),loginUser.getId(),loginUser.getUsername(),loginUser.getEmail(), roleNames);
     }

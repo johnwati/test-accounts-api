@@ -15,8 +15,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableMethodSecurity
 @Order(1)
 public class SecurityConfiguration {
+
+    private final JwtUtils jwtUtils;
     @Autowired
-    private JwtUtils jwtUtils;
+    public SecurityConfiguration(JwtUtils jwtUtils) {
+        this.jwtUtils = jwtUtils;
+    }
 
 
     @Bean
