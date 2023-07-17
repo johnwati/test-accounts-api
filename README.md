@@ -164,9 +164,9 @@ Retrieve a paginated list of all user accounts.
 ```http
 GET /accounts?page=0&size=10
 Authorization: Bearer <access_token>
+```
 Response
-json
-Copy code
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -205,9 +205,10 @@ Retrieve an account based on either the account number or account name.
 ```http
 GET /accounts/filter?accountNumber=1234567891
 Authorization: Bearer <access_token>
+
+```
 Response
-json
-Copy code
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -229,12 +230,11 @@ Retrieve an account by its unique identifier.
 Request
 
 ```http
-Copy code
 GET /accounts/1
 Authorization: Bearer <access_token>
+```
 Response
-json
-Copy code
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -255,7 +255,6 @@ Create a new user account.
 Request
 
 ```http
-Copy code
 POST /accounts
 Authorization: Bearer <access_token>
 Content-Type: application/json
@@ -291,7 +290,6 @@ Update an existing user account.
 Request
 
 ```http
-Copy code
 PUT /accounts/1
 Authorization: Bearer <access_token>
 Content-Type: application/json
